@@ -1,0 +1,19 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "regression" : "npx playwright test",
+    "debugmode" : "npx playwright test --debug",
+    "safari": "npx playwright test --config playwright.config1.js --project=safari",
+    "chrome": "npx playwright test --config playwright.config1.js --project=chrome",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.20.2"
+  }
+}
