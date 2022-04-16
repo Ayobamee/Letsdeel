@@ -12,6 +12,8 @@ class LoginPage {
     await this.password.type(password)
     await this.signInbutton.click()
   }
+  
 }
+
 
 module.exports = { LoginPage }
