@@ -1,4 +1,7 @@
 const { expect } = require('@playwright/test')
+const {
+  randomcharacterGenerator,
+} = require('../utils/randomcharacterGenerator')
 
 class LandingPage {
   constructor(page) {
@@ -60,29 +63,21 @@ class LandingPage {
     organizerUsername,
     organizerPassword
   ) {
-    const randomChar = (length) => {
-      let result = ''
-      const characters =
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-      const charactersLength = characters.length
-      for (let i = 0; i < length; i++) {
-        result += characters.charAt(
-          Math.floor(Math.random() * charactersLength)
-        )
-      }
-      return result
-    }
+    const Randomchar = new randomcharacterGenerator()
 
     await this.organizerModule.click()
     await this.addOrganizerButton.click()
-    await this.organizerNameInputField.type(organizerName + randomChar(4))
+    await this.organizerNameInputField.type(
+      organizerName + Randomchar.randomChar(4)
+    )
+
     await this.organizerEmailInputField.type(
-      organizerEmail + randomChar(2) + '@test.com'
+      organizerEmail + Randomchar.randomChar(2) + '@test.com'
     )
     await this.organizerPhoneNoInputField.type(organizerPhoneNo)
     await this.organizerAddressInputField.type(organizerAddress)
     await this.organizerUsernameInputField.type(
-      organizerUsername + randomChar(2)
+      organizerUsername + Randomchar.randomChar(2)
     )
     await this.organizerPasswordInputField.type(organizerPassword)
     await this.createOrganizerButton.click()
