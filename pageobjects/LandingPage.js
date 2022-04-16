@@ -2,6 +2,7 @@ const { expect } = require('@playwright/test')
 const {
   randomcharacterGenerator,
 } = require('../utils/randomcharacterGenerator')
+const Randomchar = new randomcharacterGenerator()
 
 class LandingPage {
   constructor(page) {
@@ -37,6 +38,17 @@ class LandingPage {
     this.successfulOrganizerCreationToastMessage = page.locator(
       'text=Created successfully'
     )
+    this.createEventButton = page.locator('text=Create Event')
+    this.selectOrganizationDropdown = page.locator(
+      'select[name="organiser_id"]'
+    )
+    this.eventName = page.locator('[placeholder="Name here"]')
+    this.eventCalendar = page.locator('[placeholder="Select Date and Time "]')
+    this.selectparticularDay = page.locator('td:nth-child(7)')
+    this.eventLocationField = page.locator('[placeholder="Enter a location"]')
+    this.eventDescriptionField = page.locator('textarea[name="event_desc"]')
+    this.eventTypeButton = page.locator('text=Public')
+    this.eventPaymentTypeButton = page.locator('text=Free')
   }
 
   async assertLogin() {
@@ -63,8 +75,6 @@ class LandingPage {
     organizerUsername,
     organizerPassword
   ) {
-    const Randomchar = new randomcharacterGenerator()
-
     await this.organizerModule.click()
     await this.addOrganizerButton.click()
     await this.organizerNameInputField.type(
@@ -85,6 +95,21 @@ class LandingPage {
 
   async assertOrganizerCreation() {
     await expect(this.successfulOrganizerCreationToastMessage).toBeVisible()
+  }
+
+  async createEvent(eventName) {
+    await this.eventManagerModule.click()
+    await this.createEventButton.click()
+    await this.selectOrganizationDropdown.click()
+    await this.selectOrganizationDropdown.selectOption('91')
+    await this.eventName.type(eventName + Randomchar.randomChar(2))
+    await this.eventCalendar.click()
+    await this.selectparticularDay.first().click()
+    await this.eventLocationField.click()
+    await this.eventLocationField.type('Magodo')
+    await this.eventDescriptionField.type('Automated Testing')
+    await this.eventTypeButton.click()
+    await this.eventPaymentTypeButton.click()
   }
 }
 

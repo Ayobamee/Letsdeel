@@ -6,6 +6,7 @@
   "organizerPhoneNo": "07060406060",
   "organizerAddress": "Ikeja, G.R.A",
   "organizerUsername": "testorgUsername",
-  "organizerPassword": "test1234!"
+  "organizerPassword": "test1234!",
+  "eventName": "Test Event"
 
 }

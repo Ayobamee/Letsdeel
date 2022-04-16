@@ -4,6 +4,7 @@ const { test } = require('@playwright/test')
 const { POManager } = require('../pageobjects/POManager')
 const dataset = JSON.parse(JSON.stringify(require('../utils/testdata.json')))
 
+//Login
 test.beforeEach(async ({ page }) => {
   const poManager = new POManager(page)
   const loginPage = poManager.getLoginPage()
@@ -13,18 +14,27 @@ test.beforeEach(async ({ page }) => {
   await landingPage.assertLogin()
 })
 
-test('Create Organizer test', async ({ page }) => {
-  const poManager = new POManager(page)
+// //Create Organizer
+// test('Create Organizer test', async ({ page }) => {
+//   const poManager = new POManager(page)
 
+//   const landingPage = poManager.getLandingPage()
+
+//   await landingPage.createOrganizer(
+//     dataset.organizerName,
+//     dataset.organizerEmail,
+//     dataset.organizerPhoneNo,
+//     dataset.organizerAddress,
+//     dataset.organizerUsername,
+//     dataset.organizerPassword
+//   )
+//   await landingPage.assertOrganizerCreation()
+// })
+
+//Create Organizer
+test('Create Event test', async ({ page }) => {
+  const poManager = new POManager(page)
   const landingPage = poManager.getLandingPage()
 
-  await landingPage.createOrganizer(
-    dataset.organizerName,
-    dataset.organizerEmail,
-    dataset.organizerPhoneNo,
-    dataset.organizerAddress,
-    dataset.organizerUsername,
-    dataset.organizerPassword
-  )
-  await landingPage.assertOrganizerCreation()
+  await landingPage.createEvent(dataset.eventName)
 })
