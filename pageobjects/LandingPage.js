@@ -49,6 +49,26 @@ class LandingPage {
     this.eventDescriptionField = page.locator('textarea[name="event_desc"]')
     this.eventTypeButton = page.locator('text=Public')
     this.eventPaymentTypeButton = page.locator('text=Free')
+    this.nextButton = page.locator('button:has-text("Next")')
+    this.ticketnameInputfield = page.locator(
+      'input[name="tickets[0].ticket_name"]'
+    )
+    this.ticketPopulationInputfield = page.locator(
+      'text=Ticket PopulationRequired >> [placeholder="Name here"]'
+    )
+    this.ticketDescriptionInputfield = page.locator(
+      'textarea[name="tickets[0].ticket_desc"]'
+    )
+    this.nextButtonOnTicketDetailsPage = page.locator('button:has-text("Next")')
+    this.numberofTurnstiles = page.locator('[placeholder="\\30 "]')
+    this.eventControlsCalendar = page.locator(
+      '[placeholder="Select Date and Time to Stop Ticket Sales"]'
+    )
+    this.selectdayonEventControls = page.locator('td:nth-child(7) >> nth=0')
+    this.allowInvitationButton = page.locator('text=Allow Invitation >> nth=0')
+    this.calendar = page.locator(
+      'form div:has-text("Timeline Bundle: Nanon BundleDuration: 4 year(s), 4 month(s), 2 week(s), 1 day(s")'
+    )
   }
 
   async assertLogin() {
@@ -97,7 +117,7 @@ class LandingPage {
     await expect(this.successfulOrganizerCreationToastMessage).toBeVisible()
   }
 
-  async createEvent(eventName) {
+  async createEvent(eventName, ticketName, ticketDescription) {
     await this.eventManagerModule.click()
     await this.createEventButton.click()
     await this.selectOrganizationDropdown.click()
@@ -110,6 +130,19 @@ class LandingPage {
     await this.eventDescriptionField.type('Automated Testing')
     await this.eventTypeButton.click()
     await this.eventPaymentTypeButton.click()
+    await this.nextButton.click()
+    await this.ticketnameInputfield.fill(ticketName + Randomchar.randomChar(3))
+    await this.ticketPopulationInputfield.fill('1')
+    await this.ticketDescriptionInputfield.fill(
+      ticketDescription + Randomchar.randomChar(4)
+    )
+    await this.nextButtonOnTicketDetailsPage.click()
+
+    await this.numberofTurnstiles.fill('1')
+    await this.eventControlsCalendar.click()
+    await this.selectdayonEventControls.first().click()
+    await this.calendar.nth(1).click()
+    await this.allowInvitationButton.click()
   }
 }
 

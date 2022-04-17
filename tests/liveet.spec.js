@@ -36,5 +36,9 @@ test('Create Event test', async ({ page }) => {
   const poManager = new POManager(page)
   const landingPage = poManager.getLandingPage()
 
-  await landingPage.createEvent(dataset.eventName)
+  await landingPage.createEvent(
+    dataset.eventName,
+    dataset.ticketName,
+    dataset.ticketDescription
+  )
 })
