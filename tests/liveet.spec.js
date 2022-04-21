@@ -14,24 +14,24 @@ test.beforeEach(async ({ page }) => {
   await landingPage.assertLogin()
 })
 
-// //Create Organizer
-// test('Create Organizer test', async ({ page }) => {
-//   const poManager = new POManager(page)
-
-//   const landingPage = poManager.getLandingPage()
-
-//   await landingPage.createOrganizer(
-//     dataset.organizerName,
-//     dataset.organizerEmail,
-//     dataset.organizerPhoneNo,
-//     dataset.organizerAddress,
-//     dataset.organizerUsername,
-//     dataset.organizerPassword
-//   )
-//   await landingPage.assertOrganizerCreation()
-// })
-
 //Create Organizer
+test('Create Organizer test', async ({ page }) => {
+  const poManager = new POManager(page)
+
+  const landingPage = poManager.getLandingPage()
+
+  await landingPage.createOrganizer(
+    dataset.organizerName,
+    dataset.organizerEmail,
+    dataset.organizerPhoneNo,
+    dataset.organizerAddress,
+    dataset.organizerUsername,
+    dataset.organizerPassword
+  )
+  await landingPage.assertOrganizerCreation()
+})
+
+//Create Event
 test('Create Event test', async ({ page }) => {
   const poManager = new POManager(page)
   const landingPage = poManager.getLandingPage()
