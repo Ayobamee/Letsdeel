@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "regression" : "npx playwright test",
-    "debugmode" : "npx playwright test --debug",
+    "regression": "npx playwright test",
+    "debugmode": "npx playwright test --debug",
     "safari": "npx playwright test --config playwright.config1.js --project=safari",
     "chrome": "npx playwright test --config playwright.config1.js --project=chrome",
     "report": "npx playwright show-report"
