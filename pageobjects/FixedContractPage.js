@@ -53,8 +53,6 @@ class FixedContractPage {
   }
 
   async openFixedContractPage() {
-    // //Click contract module
-    // await this.contractModule.click()
     //Click fixed contract module
     await this.fixedContractModule.first().click()
   }
