@@ -15,9 +15,11 @@ test.beforeEach(async ({ page }) => {
 
 test('Create Fixed Contract test', async ({ page }) => {
   const poManager = new POManager(page)
-  const fixedContracPage = poManager.getFixedContractPage()
+  const contractPage = poManager.getContractPage()
+  const fixedContractPage = poManager.getFixedContractPage()
   const createcontractpageUrl = 'https://app.deel.training/create/fixed'
-  await fixedContracPage.createContract()
+  await contractPage.createContract()
+  await fixedContractPage.OpenFixedContractPage()
   await expect(page).toHaveURL(createcontractpageUrl)
-  await fixedContracPage.completeContractCreation()
+  await fixedContractPage.completeContractCreation()
 })

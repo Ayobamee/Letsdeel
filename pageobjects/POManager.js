@@ -1,5 +1,6 @@
 const { LoginPage } = require('./LoginPage')
 const { LandingPage } = require('./LandingPage')
+const { ContractPage } = require('./ContractPage')
 const { FixedContractPage } = require('./FixedContractPage')
 
 class POManager {
@@ -7,7 +8,8 @@ class POManager {
     this.page = page
     this.loginPage = new LoginPage(page)
     this.landingPage = new LandingPage(page)
-    this.fixedContracPage = new FixedContractPage(page)
+    this.contractPage = new ContractPage(page)
+    this.fixedContractPage = new FixedContractPage(page)
   }
 
   getLoginPage() {
@@ -17,8 +19,12 @@ class POManager {
   getLandingPage() {
     return this.landingPage
   }
+
+  getContractPage() {
+    return this.contractPage
+  }
   getFixedContractPage() {
-    return this.fixedContracPage
+    return this.fixedContractPage
   }
 }
 
