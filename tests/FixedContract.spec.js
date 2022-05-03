@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
   await landingPage.assertLogin()
 })
 
-//Create fixed contract test
+//Create Fixed contract test
 test('Create Fixed Contract test', async ({ page }) => {
   const poManager = new POManager(page)
   const contractPage = poManager.getContractPage()
