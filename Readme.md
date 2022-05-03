@@ -2,5 +2,5 @@ The pageobjects folders contains folders that captures all D.O.M elements with t
 The POManager has all the imports for the different pageobjects, which also contains functions that can be accessed in the spec.js file.
 The utils has the function for generating random characters and also the test data ie username and password for the test.
 The spec.js file ie letsdeel.spec.js has all the tests to be performed. There are imports from the POManager and also instances of classes for each test to be performed. The beforeeach test block contains steps to login to the app and its assertions also.
-The packagel.json file has the different configs for the running the test eg 'npm run regression' will run the spec.js in headful mode on the webkit ie safari browser.
+The package.json file has the different configs for the running the test eg 'npm run regression' will run the spec.js in headful mode on the webkit ie safari browser.
 The allure-results has the reports for the tests run.
