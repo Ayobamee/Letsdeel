@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test')
 const { POManager } = require('../pageobjects/POManager')
 const dataset = JSON.parse(JSON.stringify(require('../utils/testdata.json')))
 
-//Login
+//Login test
 test.beforeEach(async ({ page }) => {
   const poManager = new POManager(page)
   const loginPage = poManager.getLoginPage()
@@ -13,6 +13,7 @@ test.beforeEach(async ({ page }) => {
   await landingPage.assertLogin()
 })
 
+//Create fixed contract test
 test('Create Fixed Contract test', async ({ page }) => {
   const poManager = new POManager(page)
   const contractPage = poManager.getContractPage()
