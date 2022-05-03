@@ -20,7 +20,7 @@ test('Create Fixed Contract test', async ({ page }) => {
   const fixedContractPage = poManager.getFixedContractPage()
   const createcontractpageUrl = 'https://app.deel.training/create/fixed'
   await contractPage.createContract()
-  await fixedContractPage.OpenFixedContractPage()
+  await fixedContractPage.openFixedContractPage()
   await expect(page).toHaveURL(createcontractpageUrl)
   await fixedContractPage.completeContractCreation()
 })
