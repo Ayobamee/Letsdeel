@@ -24,17 +24,3 @@ test('Create Fixed Contract test', async ({ page }) => {
   await expect(page).toHaveURL(createcontractpageUrl)
   await fixedContractPage.completeContractCreation()
 })
-
-// Create Pay as you go contract
-test('Create Pay as you go test', async ({ page }) => {
-  const poManager = new POManager(page)
-  const contractPage = poManager.getContractPage()
-  const payasyougoContractPage = poManager.getPayAsYouGoContractPage()
-  const createcontractpageUrl = 'https://app.deel.training/create'
-  const payasyougopageUrl = 'https://app.deel.training/create/pay-as-you-go'
-  await contractPage.createContract()
-  await expect(page).toHaveURL(createcontractpageUrl)
-  await payasyougoContractPage.openPayasyougoContractPage()
-  await expect(page).toHaveURL(payasyougopageUrl)
-  await payasyougoContractPage.completeContractCreation()
-})

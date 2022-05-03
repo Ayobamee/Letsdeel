@@ -4,4 +4,5 @@ The utils folder has two files, one with the function for generating random char
 The spec.js file ie Letsdeel.spec.js under the test folder has all the tests to be performed. There are imports from the POManager and also instances of classes for each test to be performed. The beforeeach test block contains steps to login to the app and its assertions also.
 The package.json file has the different configs for the running the test eg 'npm run regression' will run the spec.js in headful mode on the webkit ie safari browser.
 The allure-results folder has the reports for the tests run.
+The two tests ie fixedcontract and payasyougo contract creation are running in parallel, i configured 2 workers in the congig.js file to make this happen. 
 The project was committed to the main branch on the project directory on github.
